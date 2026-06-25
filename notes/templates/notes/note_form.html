@@ -1,0 +1,20 @@
+{% extends 'notes/base.html' %}
+{% block title %}Note Form{% endblock %}
+
+{% block content %}
+  <h1>
+    {% if note_form.instance and note_form.instance.id %}
+      Edit Note
+    {% else %}
+      Add Note
+    {% endif %}
+  </h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ note_form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+
+  <a href="{% url 'notes:list' %}">Back</a>
+{% endblock %}
