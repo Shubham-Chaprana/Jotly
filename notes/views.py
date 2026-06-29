@@ -36,8 +36,3 @@ def delete(request, id):
         return redirect('notes:list')
 
     return render(request, 'notes/note_confirm_delete.html', {'note': note})
-
-
-
-
-

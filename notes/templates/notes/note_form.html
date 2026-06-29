@@ -2,19 +2,47 @@
 {% block title %}Note Form{% endblock %}
 
 {% block content %}
-  <h1>
-    {% if note_form.instance and note_form.instance.id %}
-      Edit Note
-    {% else %}
-      Add Note
-    {% endif %}
-  </h1>
 
-  <form method="post">
-    {% csrf_token %}
-    {{ note_form.as_p }}
-    <button type="submit">Save</button>
-  </form>
+<div class="form-card">
 
-  <a href="{% url 'notes:list' %}">Back</a>
+    <h1>
+        {% if note_form.instance.id %}
+            Edit Note
+        {% else %}
+            Add Note
+        {% endif %}
+    </h1>
+
+    <form method="post" class="note-form">
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ note_form.title.label_tag }}
+            {{ note_form.title }}
+        </div>
+
+        <div class="form-group">
+            {{ note_form.content.label_tag }}
+            {{ note_form.content }}
+        </div>
+
+        <div class="pin-field">
+            {{ note_form.pinned }}
+            {{ note_form.pinned.label_tag }}
+        </div>
+
+        <button type="submit" class="save-btn">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save Note
+        </button>
+
+    </form>
+
+    <a href="{% url 'notes:list' %}" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Notes
+    </a>
+
+</div>
+
 {% endblock %}
