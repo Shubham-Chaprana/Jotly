@@ -1,11 +1,17 @@
 from django.shortcuts import render,get_object_or_404,redirect
+from django.db.models import Q
 from .models import Notes
 from .forms import NoteForm
 
 # Create your views here.
 def list_view(request):
+    query = request.GET.get('q','')
     notes_list = Notes.objects.order_by('-pinned','-created')
-    return render(request,'notes/notes_list.html',{'notes':notes_list})
+    if query:
+        notes_list = notes_list.filter(
+            Q(title__icontains = query) | Q(content__icontains = query)
+            )
+    return render(request,'notes/notes_list.html',{'notes':notes_list,'query':query})
 def  edit(request,id):
     
     note = get_object_or_404(Notes,id = id)

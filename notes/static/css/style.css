@@ -139,19 +139,30 @@ main h1{
     flex-direction: column;
     gap: 10px;
 }
-.save-btn,.confirm-btn{
+.save-btn{
     margin-top: 10px;
     height: 30px;
     width:  100px;
     border-radius: 8px;
     border: 2px solid #D1D5DB;
 }
+.delete-actions{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
 .confirm-btn{
     background-color: #B91C1C;
     color: white;
-    margin-top: 10px;
-    height: 30px;
-    width:  100px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 2px solid #D1D5DB;
+}
+.cancel-btn{
+    font-size: small;
+    text-decoration: none;
+    color: black;
+    padding: 10px 12px;
     border-radius: 8px;
     border: 2px solid #D1D5DB;
 }
@@ -160,7 +171,7 @@ main h1{
     flex-direction: column;
     gap: 10px;
 }
-.back-link,.cancel-btn{
+.back-link{
     text-decoration: none;
     color: black;
     margin-top: 20px;
@@ -170,6 +181,34 @@ input[name = "title"]{
 }
 .confirmation-text{
     font-size: large;
+}
+.search-box{
+    margin-bottom:20px;
+}
+.search-form{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.search-input{
+    padding: 16px;
+    border-radius: 20px;
+    flex: 1;
+}
+.search-btn{
+    /* height: 40px;
+    width:  100px; */
+    border-radius: 16px;
+    padding: 16px 20px;
+    border: 2px solid #D1D5DB;
+}
+.empty-state{
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+}
+.empty-state>a{
+    max-width: 120px;
 }
 
 

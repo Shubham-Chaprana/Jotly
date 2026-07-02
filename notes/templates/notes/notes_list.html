@@ -3,7 +3,21 @@
 
 {% block content %}
 <h1 class = "heading">Your Notes</h1>
-<div class="search-box"></div>
+<div class="search-box">
+    <form method="get" class="search-form">
+    <input
+        type="text"
+        name="q"
+        value="{{ query }}"
+        placeholder="Search notes..."
+        class="search-input"
+    >
+    <button type="submit" class="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Search
+    </button>
+</form>
+</div>
 {% if notes %}
     <div class="notes-grid">
         {% for note in notes %}
@@ -24,7 +38,18 @@
         {% endfor %}
     </div>
 {% else %}
-    <p>No notes yet. <a href="{% url 'notes:add' %}">Add one</a></p>
+    {% if query %}
+        <div class="empty-state">
+            <h2>No notes found</h2>
+            <p>No notes matched "{{ query }}". Try a different keyword.</p>
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h2>No notes yet</h2>
+            <p>Create your first note to get started.</p>
+            <a href="{% url 'notes:add' %}" class="new-note-btn">Add Note</a>
+        </div>
+    {% endif %}
 {% endif %}
 
 {% endblock %}
