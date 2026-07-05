@@ -32,7 +32,10 @@ body{
     font-weight: 700;
 }
 
-.new-note-btn{
+.new-note-btn,.new-note-btn,
+.login-btn,
+.signup-btn,
+.logout-btn {
     text-decoration: none;
     background: white;
     color: #111827;
@@ -44,7 +47,10 @@ body{
     transition: .2s;
 }
 
-.new-note-btn:hover{
+.new-note-btn:hover,
+.login-btn:hover,
+.signup-btn:hover,
+.logout-btn:hover {
     background: #F3F4F6;
 }
 
@@ -210,5 +216,46 @@ input[name = "title"]{
 .empty-state>a{
     max-width: 120px;
 }
+.nav-actions{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.logout-form{
+    margin: 0;
+}
+.auth-switch-text{
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+.save-btn-account{
+    margin-top: 12px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    background-color: #166534;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    width: fit-content;
+}
+.form-errors{
+    background-color: #FEF2F2;
+    border: 1px solid #FCA5A5;
+    color: #991B1B;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
 
-
+.form-errors p{
+    margin: 0;
+    font-size: 0.95rem;
+}
+.note-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

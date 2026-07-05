@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.urls import path
 from notes import views
+from django.contrib.auth.views import LogoutView
 app_name = 'notes'
 
 urlpatterns = [
@@ -24,5 +25,8 @@ urlpatterns = [
     path('delete/<int:id>/',views.delete,name = 'delete'),
     path('edit/<int:id>/',views.edit,name = 'edit'),
     path('add/',views.add,name = 'add'),
+    path('signup/', views.signup_view, name='signup'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     
 ]

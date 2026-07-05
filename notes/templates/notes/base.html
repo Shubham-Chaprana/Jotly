@@ -3,16 +3,33 @@
 <html>
 <head>
     <title>{% block title %}Notes App{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'notes/css/style.css' %}">
     <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
 
-<nav class = "navbar" >
-    <div class = "nav-container">
-        <a class = "logo-link" href="{% url 'notes:list' %}">Jotly</a>
-        <a class = "new-note-btn" href="{% url 'notes:add' %}"> <i class="fa-solid fa-plus"></i> Add Note</a>
+<nav class="navbar">
+    <div class="nav-container">
+        <a class="logo-link" href="{% url 'notes:list' %}">Jotly</a>
+
+        <div class="nav-actions">
+            {% if user.is_authenticated %}
+                <a class="new-note-btn" href="{% url 'notes:add' %}">
+                    <i class="fa-solid fa-plus"></i> Add Note
+                </a>
+
+                <form method="post" action="{% url 'notes:logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </button>
+                </form>
+            {% else %}
+                <a class="login-btn" href="{% url 'notes:login' %}">Login</a>
+                <a class="signup-btn" href="{% url 'notes:signup' %}">Sign Up</a>
+            {% endif %}
+        </div>
     </div>
 </nav>
 

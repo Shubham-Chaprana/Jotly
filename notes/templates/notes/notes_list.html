@@ -22,7 +22,15 @@
     <div class="notes-grid">
         {% for note in notes %}
             <div class="note-card">
-                <h1>{{ note.title }}</h1>
+                <div class="note-top">
+                    <h3>{{ note.title }}</h3>
+                    {% if  note.pinned %}
+                        <span class="pin-badge">
+                            <i class="fa-solid fa-thumbtack"></i>
+                            Pinned 
+                        </span>
+                    {% endif %}
+                </div>
                 <p>{{ note.content | truncatechars:100}}</p>
                 <div class="note-action">
                     <a href="{% url 'notes:edit' note.id %}">
