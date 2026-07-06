@@ -83,3 +83,8 @@ def delete(request, id):
         return redirect('notes:list')
 
     return render(request, 'notes/note_confirm_delete.html', {'note': note})
+
+@login_required
+def detail(request, id):
+    note = get_object_or_404(Notes, user=request.user, id=id)
+    return render(request, 'notes/note_detail.html', {'note': note})
