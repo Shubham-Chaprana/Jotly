@@ -45,29 +45,6 @@ While building Jotly, I worked through:
 
 ---
 
-## 📂 Project Structure
-
-
-notesProject/
-│
-├── notes/ # Main app
-│ ├── templates/
-│ ├── static/
-│ ├── models.py
-│ ├── views.py
-│ └── urls.py
-│
-├── notesProject/ # Project settings
-│ ├── settings.py
-│ ├── wsgi.py
-│
-├── requirements.txt
-├── build.sh
-└── manage.py
-
-
----
-
 ## 🔮 Future Improvements
 
 - Rich text editor for notes
